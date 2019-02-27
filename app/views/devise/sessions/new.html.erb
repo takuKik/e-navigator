@@ -1,5 +1,5 @@
-<% @page_title = "ログイン" %>
-<h2><%= @page_title %></h2>
+<% provide(:title, "ログイン") %>
+<h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">

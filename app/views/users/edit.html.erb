@@ -1,5 +1,5 @@
-<% @page_title = "プロフィール編集" %>
-<h2><%= @page_title %></h2>
+<% provide(:title, "プロフィール編集") %>
+<h2>プロフィール編集</h2>
 
 <%= form_for(@user) do |f| %>
   <div class="field">

@@ -1,5 +1,5 @@
-<% @page_title = "ユーザー情報" %>
-<h2><%= @page_title %></h2>
+<% provide(:title, "ユーザー情報") %>
+<h2>ユーザー情報</h2>
 
 <% if @users.present? %>
   <table class="list">

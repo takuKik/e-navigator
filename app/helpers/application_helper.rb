@@ -1,7 +1,10 @@
 module ApplicationHelper
-  def page_title
-    title = "ENavigator"
-    title = @page_title + "-" + title if @page_title
-    title
+  def full_title(page_title)
+    base_title = "ENavigator"
+    if page_title.blank?
+      base_title
+    else
+      "#{page_title} | #{base_title}"
+    end
   end
 end
