@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path, notice: "プロフィールを更新しました。"
     else
-      redirect_to edit_user_path(current_user), notice: "メールの欄を空白にしてはいけません。"
+      render edit_user_path(current_user)
     end
   end
 
