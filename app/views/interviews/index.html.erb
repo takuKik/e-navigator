@@ -1,0 +1,8 @@
+<h1>スケジュール一覧</h1>
+
+<% @interviews.each do |interview| %>
+  <%= interview.interview_date %><br>
+<% end %>
+<br>
+<%= link_to "新規スケジュール作成", new_user_interview_path %><br><br>
+<%= link_to "トップページに戻る", users_path %>
