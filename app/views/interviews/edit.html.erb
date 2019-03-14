@@ -1,0 +1,9 @@
+<h1>インタビューを編集</h1>
+
+<%= form_for [@user, @interview] do |f| %>
+
+  <%= f.label :interview_date, "Interview Date" %><br>
+  <%= f.datetime_select :interview_date %>
+
+  <%= f.submit "インタビューを編集" %>
+<% end %>

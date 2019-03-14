@@ -2,7 +2,9 @@
 
 <% @interviews.each do |interview| %>
   <%= interview.interview_date %><br>
+  <%= link_to "編集", edit_user_interview_path(@user, interview) %>
+  <%= link_to "削除", user_interview_path(@user,interview), method: :delete %><br>
 <% end %>
 <br>
-<%= link_to "新規スケジュール作成", new_user_interview_path %><br><br>
+<%= link_to "新規スケジュール作成", new_user_interview_path %><br>
 <%= link_to "トップページに戻る", users_path %>

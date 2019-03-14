@@ -1,5 +1,6 @@
 class InterviewsController < ApplicationController
   def index
+    @user = current_user
     @interviews = current_user.interviews.order("interview_date DESC")
   end
 
@@ -16,6 +17,28 @@ class InterviewsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @user = current_user
+    @interview = Interview.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @interview = Interview.find(params[:id])
+    if  @interview.update(interview_params)
+      redirect_to user_interviews_url
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @interview = Interview.find(params[:id])
+    @interview.destroy
+    redirect_to user_interviews_url
   end
 
   private
