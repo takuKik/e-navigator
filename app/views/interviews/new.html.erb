@@ -1,9 +1,11 @@
-<h1>新規スケジュール作成</h1>
+<% provide(:title, "新規面接作成") %>
+<%= render 'error_message' %>
+<h1>新規面接作成</h1>
 
 <%= form_for [@user, @interview] do |f| %>
 
-  <%= f.label :interview_date, "Interview Date" %><br>
+  <%= f.label :interview_date, "日時追加" %><br>
   <%= f.datetime_select :interview_date %>
 
-  <%= f.submit "新規スケジュール作成" %>
+  <%= f.submit "新規面接作成" %>
 <% end %>

@@ -1,9 +1,11 @@
-<h1>インタビューを編集</h1>
+<% provide(:title, "面接日程の編集") %>
+<%= render 'error_message' %>
+<h1>面接日程の編集</h1>
 
 <%= form_for [@user, @interview] do |f| %>
 
-  <%= f.label :interview_date, "Interview Date" %><br>
+  <%= f.label :interview_date, "面接日程" %><br>
   <%= f.datetime_select :interview_date %>
 
-  <%= f.submit "インタビューを編集" %>
+  <%= f.submit "面接日程の編集" %>
 <% end %>
