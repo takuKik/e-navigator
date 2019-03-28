@@ -12,6 +12,8 @@ class InterviewsController < ApplicationController
 
   def create
     @interview = Interview.new(interview_params)
+    @interview.user_id = params[:user_id]
+
     if @interview.save
       redirect_to user_interviews_url, notice: "新規面接日程を作成しました。"
     else
@@ -45,6 +47,6 @@ class InterviewsController < ApplicationController
   end
 
   def interview_params
-    params.require(:interview).permit(:interview_date).merge(user_id: params[:user_id])
+    params.require(:interview).permit(:interview_date)
   end
 end

@@ -4,6 +4,6 @@
 <% @interviews.each do |interview| %>
   <%= interview.interview_date.strftime('%Y年%m月%d日%H時%M分') %>
   <%= link_to "編集", edit_user_interview_path(@user, interview) %>
-  <%= link_to "削除", user_interview_path(@user,interview), method: :delete, data: { confirm: '本当によろしいですか?' } %><br>
+  <%= link_to "削除", user_interview_path(@user, interview), method: :delete, data: { confirm: '本当によろしいですか?' } %><br>
 <% end %>
 <%= link_to "新規面接作成", new_user_interview_path %>
