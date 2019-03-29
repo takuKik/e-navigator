@@ -44,3 +44,6 @@
    color: #f88;
    text-decoration: underline;
  }
+ .alert {
+   color: red;
+ }
