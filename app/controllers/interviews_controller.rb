@@ -1,9 +1,12 @@
 class InterviewsController < ApplicationController
-  before_action :set_user, except: :destroy
-  before_action :set_interview, only: [:edit, :update, :destroy]
+  before_action :set_user, except: [:destroy, :setup]
+  before_action :set_interview, only: [:edit, :update, :destroy, :setup]
 
   def index
     @interviews = current_user.interviews.order("interview_date DESC")
+  end
+
+  def show
   end
 
   def new
@@ -35,6 +38,17 @@ class InterviewsController < ApplicationController
   def destroy
     @interview.destroy
     redirect_to user_interviews_url, notice: "面接日時を削除しました。"
+  end
+
+  def setup
+    others = Interview.where(user_id: params[:user_id]).where.not(id: params[:id])
+    @interview.user_id = params[:user_id]
+    if @interview.update(interview_status: 1)
+      others.update_all(interview_status: 2)
+      redirect_to user_interviews_url(params[:user_id]), notice: "面談日時が設定されました。"
+    else
+      render action: :edit
+    end
   end
 
   private
